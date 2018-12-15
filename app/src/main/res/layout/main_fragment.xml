@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="activity"
+                type="org.firespeed.multiTypeRecyclerView.ui.main.MainFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".MainActivity">
+
+        <Button
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Header"
+                app:layout_constraintBottom_toTopOf="@+id/barrier"
+                app:layout_constraintEnd_toStartOf="@+id/detail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+                android:id="@+id/detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detail"
+                app:layout_constraintBottom_toTopOf="@+id/barrier"
+                app:layout_constraintEnd_toStartOf="@id/summary"
+                app:layout_constraintStart_toEndOf="@id/header"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+                android:id="@+id/summary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Summary"
+                app:layout_constraintBottom_toTopOf="@+id/barrier"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/detail"
+                app:layout_constraintTop_toTopOf="parent " />
+
+        <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="summary,header,detail" />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/list"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/barrier" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
